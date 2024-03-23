@@ -8,3 +8,13 @@ views = Blueprint(
 @views.route("/")
 def index():
     return render_template("index.html")
+
+
+@views.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@views.route("/methodology")
+def methodology():
+    return render_template("methodology.html")
