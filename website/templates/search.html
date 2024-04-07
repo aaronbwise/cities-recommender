@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Cities -- Search{% endblock %}
+{% block content %}
+
+<main>
+
+    <section>
+        <div class="background-section d-flex align-items-center">
+            <div class="overlay-card">
+                <h5>{{ city_name_0 }}</h5>
+                <ul>
+                    <li>Population: {{ city_pop_0 }}</li>
+                    <li>Median Income: ${{ city_income_0 }}</li>
+                    <li>Median Home Value: ${{ city_home_0 }}</li>
+                    <li>Median Rent: ${{ city_rent_0 }}</li>
+                    <li><a href="{{ city_wiki_urls_0 }}" target="_blank">Wikipedia URL</a></li>
+                </ul>                
+            </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div class="container">
+            <h6>Cities you may also like</h6>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card text-center mb-3">
+                        <img src="static/images/main_street.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"> {{ city_name_1 }}</p>
+                            <a href="/search?city_name={{ city_name_1 }}" class="btn btn-outline-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center mb-3">
+                        <img src="static/images/main_street.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"> {{ city_name_2 }}</p>
+                            <a href="/search?city_name={{ city_name_2 }}" class="btn btn-outline-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center mb-3">
+                        <img src="static/images/main_street.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"> {{ city_name_3 }}</p>
+                            <a href="/search?city_name={{ city_name_3 }}" class="btn btn-outline-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+{% endblock %}

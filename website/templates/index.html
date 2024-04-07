@@ -2,25 +2,91 @@
 {% block title %}Cities -- Home{% endblock %}
 {% block content %}
 
-<section class="hero">
-    <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="static/images/main_street.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-                    width="700" height="500" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Find your next city</h1>
-                <p class="lead">Explore cities -- some well-known, some hidden gems -- to jumpstart your relocation.
-                    Whether
-                    you're retiring, working remotely, or looking for a lower cost of living, our algorithm will
-                    serve up recommendations based on your preferences. </p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" href="#">Let's Go!</button>
-                </div>
-            </div>
-        </div>
+<section class="hero" id="hero">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="static/images/main_street.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+        height="500" loading="lazy" />
     </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">Find your next city</h1>
+      <p class="lead">
+        Explore cities -- some well-known, some hidden gems -- to jumpstart your
+        relocation. Whether you're retiring, working remotely, or looking for a
+        lower cost of living, our algorithm will serve up recommendations based
+        on your preferences.
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button href="#choose" type="submit" class="btn btn-primary">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section {% endblock %}
+<!-- Type of User -->
+<section class="text-center">
+  <h3>Choose one:</h3>
+  <div class="row g-5 py-5">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card text-center">
+        <div class="card-body" id="choose">
+          <h5 class="card-title">Explore</h5>
+          <p class="card-text">Set some options to narrow your search</p>
+
+          <form>
+            <div class="mb-3">
+              <label for="size" class="form-label">Population</label><br />
+
+              <input type="radio" class="btn-check" name="options-1-outlined" id="primary-outlined"
+                autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-outlined">Small</label>
+
+              <input type="radio" class="btn-check" name="options-2-outlined" id="primary-outlined"
+                autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-outlined">Medium</label>
+
+              <input type="radio" class="btn-check" name="options-3-outlined" id="primary-outlined"
+                autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-outlined">Large</label>
+            </div>
+
+            <div class="mb-3">
+              <label for="affordability" class="form-label">Affordability</label><br />
+              <input type="radio" class="btn-check" name="options-4-outlined" id="primary-outlined"
+                autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-5-outlined">$</label>
+
+              <input type="radio" class="btn-check" name="options-6-outlined" id="primary-outlined"
+                autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-outlined">$$</label>
+
+              <input type="radio" class="btn-check" name="options-outlined" id="primary-outlined" autocomplete="off" />
+              <label class="btn btn-outline-primary" for="primary-outlined">$$$$</label>
+            </div>
+            <a href="#" class="btn btn-success" type="submit">Filter</a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">I have an idea</h5>
+          <p class="card-text">Enter a city to find similar places</p>
+          <form class="form-inline" action="{{ url_for('views.search') }}" method="post">
+            <div class="mb-3">
+              <input type="text" name="target_msa" placeholder="Enter an city..." /><br>
+            </div>
+          </form>
+
+          <button type="submit" class="btn btn-success">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+{% endblock %}
